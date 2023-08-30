@@ -1,0 +1,18 @@
+version: '3'
+services:
+  ros1_lecture_noetic_202309:
+    container_name: ros1_lecture_noetic_202309
+    image: kmiyawaki20/ros1_noetic_lxde:202309
+    volumes:
+      - ubuntu:/home/ubuntu
+    ports:
+      - "6080:80"
+      - "5901:5901"
+    environment:
+      - USER=ubuntu
+      - RESOLUTION=1280x800
+      - TZ=Asia/Tokyo
+    tty: true
+
+volumes:
+  ubuntu:
