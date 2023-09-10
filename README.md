@@ -4,9 +4,9 @@
 
 Wifi通信の良好な環境にて実施してください。
 
-[ros1_lecture_noetic-202309.zip](https://github.com/KMiyawaki/ros1_lecture_noetic/archive/refs/tags/202309.zip)をダウンロードし展開してください。ここでは`C:\%USERPROFILE%\Documents\ros1_lecture_noetic-202309`に展開したとします。
+[ros1_lecture_noetic-202309.zip](https://github.com/KMiyawaki/ros1_lecture_noetic/archive/refs/tags/202309.zip)をダウンロードし展開してください。ここでは`%USERPROFILE%\Documents\ros1_lecture_noetic-202309`に展開したとします。
 
-なお、`%USERPROFILE%`は`Windows`の環境変数で`C:\Users\[ログインユーザ名]`に置き換えられます。
+なお、`%USERPROFILE%`は`Windows`の環境変数で`C:\Users\[ログインユーザ名]`に置き換えられます。  
 `Windows`のファイルエクスプローラーでアドレス欄に`%USERPROFILE%\Documents`と入力してエンターキーを押し、どのフォルダが開くかを確認してみてください。
 `C:\Users\[ログインユーザ名]\Documents`が開くはずです。
 
@@ -37,7 +37,7 @@ docker-compose pull
 
 以下の画面のように環境のダウンロードが始まります。
 
-![2022-12-11_154539.png](./images/2022-12-11_154539.png)
+![2023-09-10_085016.png](./images/2023-09-10_085016.png)
 
 終了したら次のコマンドを入力してください。
 
@@ -45,12 +45,12 @@ docker-compose pull
 docker images
 ```
 
-次のように`melodic_202302`のイメージがダウンロードされていれば成功です。  
-`76e6332fcd35   22 minutes ago   3.81GB`の部分は多少異なる可能性があります。
+次のように`REPOSITORY`に`ros1_noetic_lxde`、`TAG`に`202309`のイメージがダウンロードされていれば成功です。  
+`079608694118   7 days ago     3.2GB`の部分は多少異なる可能性があります。
 
 ```cmd
-REPOSITORY                TAG                IMAGE ID       CREATED          SIZE
-kmiyawaki20/ros_lecture   melodic_202302   76e6332fcd35   22 minutes ago   3.81GB
+REPOSITORY                     TAG               IMAGE ID       CREATED        SIZE
+kmiyawaki20/ros1_noetic_lxde   202309            079608694118   7 days ago     3.75GB
 ```
 
 ## 起動
@@ -73,21 +73,24 @@ docker-compose up
 このコマンドを起動したターミナルは作業終了までは閉じないでください。
 
 ```cmd
- - Network ros_lecture_melodic_202302-main_default  Created                                                      0.8s
- - Volume "ros_lecture_melodic_202302-main_ubuntu"  Created                                                      0.0s
- - Container ros_lecture_melodic_202302             Created                                                      8.7s
-Attaching to ros_lecture_melodic_202302
+[+] Running 2/2
+ - Volume "ros1_lecture_noetic-202309_ubuntu" Created 0.0s
+ - Container ros1_lecture_noetic_202309       Created 0.9s
+Attaching to ros1_lecture_noetic_202309
+ros1_lecture_noetic_202309  |
+ros1_lecture_noetic_202309  | New '8957ffa115ee:1 (ubuntu)' desktop at :1 on machine 8957ffa115ee
 ・・・
-ros_lecture_melodic_202302  | **********************************************
-ros_lecture_melodic_202302  | * Open 'http://127.0.0.1:6080/vnc.html'      *
-ros_lecture_melodic_202302  | * Or access '127.0.0.0:5901' via VNC viewer. *
-ros_lecture_melodic_202302  | **********************************************
+ros1_lecture_noetic_202309  |   - Backgrounding (daemon)
+ros1_lecture_noetic_202309  | **********************************************
+ros1_lecture_noetic_202309  | * Open 'http://127.0.0.1:6080/vnc.html'      *
+ros1_lecture_noetic_202309  | * Or access '127.0.0.0:5901' via VNC viewer. *
+ros1_lecture_noetic_202309  | **********************************************
 ```
 
 任意のWEBブラウザで[http://127.0.0.1:6080/vnc.html](http://127.0.0.1:6080/vnc.html)に接続してください。  
 次のような画面が出ますので、`Connect`を押してください。パスワードは不要です。
 
-![2022-12-22_103632.png](./images/2022-12-22_103632.png)
+![2023-09-10_095247.png](./images/2023-09-10_095247.png)
 
 次のように`Linux`の`GUI`が表示されれば成功です。
 
@@ -126,7 +129,29 @@ WEBブラウザで表示されている`Linux`の`GUI`（以降単に`Linux`と�
 
 コマンドターミナルで`roscore`を入力してエンターキーを押してください。実行結果は次の通りです。
 
-![2022-12-11_110107.png](./images/2022-12-11_110107.png)
+```shell
+... logging to /home/ubuntu/.ros/log/eef8640a-4f6f-11ee-b1e5-0242ac140002/roslaunch-8957ffa115ee-709.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://8957ffa115ee:42779/
+ros_comm version 1.16.0
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.16.0
+
+NODES
+
+auto-starting new master
+process[master]: started with pid [717]
+ROS_MASTER_URI=http://8957ffa115ee:11311/
+```
 
 このコマンドターミナルは動作確認終了までは閉じないでください。
 
@@ -139,10 +164,10 @@ rosrun turtlesim turtlesim_node
 なお、WEBブラウザ上での`Linux`に対し`Windows`側でコピーしたテキストを単純な方法ではペーストすることはできません。`Linux`->`Windows`も不可能です。  
 `Linux`->`Linux`へのコピー＆ペーストは可能です。
 
-`Windows`->`Linux`へのコピー＆ペーストをする場合は画面右上のクリップボードアイコンをクリックし、そこにテキストをペーストしてください。  
+`Windows`->`Linux`へのコピー＆ペーストをする場合は画面左のクリップボードアイコンをクリックし、そこにテキストをペーストしてください。  
 その後、`Linux`側で右クリックからペーストを行ってください。
 
-![2022-12-22_110016.png](./images/2022-12-22_110016.png)
+![2023-09-10_092351.png](./images/2023-09-10_092351.png)
 
 `Linux`->`Windows`の場合は`Linux`側でコピーしたテキストが自動的にクリップボードに表示されますので、それを利用してください。
 
@@ -218,14 +243,14 @@ roslaunch oit_navigation_minibot_light_01 stage_navigation.launch
 
 [起動](#起動)の項目で実施した`docker-compose up`が正常に実行され、WEBブラウザで[http://127.0.0.1:6080/vnc.html](http://127.0.0.1:6080/vnc.html)に接続可能なことを確認してから、次の手順に移ってください。
 
-`VSCode`のリモートエクスプローラをクリックして`Containers`をクリックしてください。  
+`VSCode`のリモートエクスプローラをクリックして`開発コンテナ`をクリックしてください。  
 
-![2022-12-17_170846.png](./images/2022-12-17_170846.png)
+![2023-09-10_093409.png](./images/2023-09-10_093409.png)
 
-`ros_lectures_melodic_202302`があるはずですので、それをクリックしてください。  
-さらに、`Attach to Container`をクリックしてください。
+`ros_lectures_noetic_202309`があるはずですので、それをクリックしてください。  
+さらに、`現在のウィンドウでアタッチする`をクリックしてください。
 
-![2022-12-17_170946.png](./images/2022-12-17_170946.png)
+![2023-09-10_093809.png](./images/2023-09-10_093809.png)
 
 次のようなダイアログが出た場合は`Got It`をクリックしてください。
 
@@ -237,10 +262,10 @@ roslaunch oit_navigation_minibot_light_01 stage_navigation.launch
 
 ![2022-12-22_093913.png](./images/2022-12-22_093913.png)
 
-左下の方に`Container kmiyawaki20/ros_lectures...`という表示が出ていることを確認してください。  
+左下の方に`Container kmiyawaki20/ros1_noetic...`という表示が出ていることを確認してください。  
 左側のフォルダを開くアイコンをクリックし、`/home/ubuntu/catkin_ws/src`を選択してください。
 
-![2022-12-17_171129.png](./images/2022-12-17_171129.png)
+![2023-09-10_094100.png](./images/2023-09-10_094100.png)
 
 `/home/ubuntu/catkin_ws/src/beginner_tutorials/scripts/listener.py`をダブルクリックし、エディタで表示できることを確認してください。
 
