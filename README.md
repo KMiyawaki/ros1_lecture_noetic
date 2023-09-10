@@ -1,5 +1,17 @@
 # ros1_lecture_noetic-202309
 
+## 必要なソフトのインストール
+
+下記のソフトをインストールしてください。
+
+1. [`Docker Desktop for Windows`](https://www.docker.com/products/docker-desktop/)
+  - インターネット上に[日本語でのインストール方法](https://docs.docker.jp/docker-for-windows/install.html)についても解説があります。
+  - `WSL2(Windows Subsystem for Linux 2)`を併用する方法でインストールしてください。
+2. `Visual Studio Code`
+  - 以降、VSCodeと表記します。
+3. `WEB`ブラウザ
+  - 種類は任意ですが、本ページでは`Chrome`を前提にご説明します。
+
 ## Docker イメージのインストール
 
 Wifi通信の良好な環境にて実施してください。
