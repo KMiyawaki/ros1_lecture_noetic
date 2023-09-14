@@ -243,6 +243,15 @@ roslaunch oit_navigation_minibot_light_01 stage_navigation.launch
 
 ## VSCodeとの連携
 
+Windowsのアプリ検索で`code -n`と入力し`VSCode`の新しいウィンドウを開きます。
+
+![2023-09-14_090247.png](./images/2023-09-14_090247.png)
+
+補足説明：`VSCode`は通常、前回起動時に開いていたフォルダを記憶しており、普通に再起動するとそのフォルダを開こうとします。  
+例えば`WSL`や他の`Docker`コンテナに前回接続していた場合、その環境に自動的に接続しようとするため却って混乱を招く場合がありますが、`code -n`によって起動することでどのフォルダも開いていない状態で起動することができます。
+
+`VSCode`の扱いに慣れている場合は、任意の方法で`VSCode`を起動してかまいません。以下の拡張機能は`Windows`側にインストールするようにしてください。
+
 `VSCode`の拡張機能から`Docker`、`Dev Containers`、`Remote Development`を選択してインストールしてください。
 
 ![2022-12-17_170506.png](./images/2022-12-17_170506.png)
