@@ -341,3 +341,17 @@ WEBブラウザのときと同じように`Linux`のデスクトップにアク�
 ![2022-12-22_161431.png](./images/2022-12-22_161431.png)
 
 設定後、`127.0.0.1:5901`の接続先アイコンをダブルクリックして再接続してください。
+
+## 起動用バッチファイル（オプション）
+
+次のようなバッチファイルを`ros1_lecture_noetic.bat`（ファイル名は任意です）としてデスクトップ等、分かりやすい場所に保存してください。
+
+```bat
+start "ros1_lecture_noetic" ^
+/d %USERPROFILE%\Documents\ros1_lecture_noetic-202309 ^
+docker-compose up
+```
+
+[Docker イメージのインストール](#docker-イメージのインストール)で説明したように、[Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/)が**起動していることを必ず確認してください**。
+
+その後、`ros1_lecture_noetic.bat`をダブルクリックすると開発環境が起動します。
